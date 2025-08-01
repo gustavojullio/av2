@@ -1,0 +1,24 @@
+<h1>Consulta Receita</h1>
+<ul class="nav nav-pills nav-fill mt-3 mb-2">
+     <li class="nav-item">
+          <a class="nav-link" href="/"><i class="bi bi-journal-bookmark"></i> Sistema de Receitas</a>
+     </li>
+     <li class="nav-item">
+          <a class="nav-link" href="/sobre"> <i class="bi bi-info-circle"></i> Sobre</a>
+     </li>
+     <li class="nav-item">
+          <a class="nav-link" href="/receita/cria"> <i class="bi bi-file-earmark-plus"></i> Nova Receita</a>
+     </li>
+     <li class="nav-item">
+          <a class="nav-link" href="/tempo"><i class="bi bi-alarm"></i> Receitas por Tempo de Preparo</a>
+     </li>
+</ul>
+
+<h2>{{receita.titulo}}</h2>
+<h3>Tempo de Preparo</h3>
+<p>{{receita.tempo}} minutos</p>
+<h3>Ingredientes</h3>
+<pre>{{receita.ingredientes}}</pre>
+<h3>Modo de Preparo</h3>
+<pre>{{receita.modo}}</pre>
+<a class="btn btn-secondary" href="/"> <i class="bi bi-arrow-return-left"></i> Voltar</a>

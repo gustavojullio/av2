@@ -1,0 +1,125 @@
+<h1>Minhas Receitas</h1>
+
+<ul class="nav nav-pills nav-fill mt-3 mb-4">
+  <li class="nav-item">
+    <a class="nav-link" href="/"><i class="bi bi-journal-bookmark"></i> Sistema de Receitas</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/sobre"> <i class="bi bi-info-circle"></i> Sobre</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/receita/cria"> <i class="bi bi-file-earmark-plus"></i> Nova Receita</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="/tempo"><i class="bi bi-alarm"></i> Receitas por Tempo de Preparo</a>
+  </li>
+</ul>
+
+<div class="accordion mb-3" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+        aria-expanded="true" aria-controls="collapseOne">
+        Receitas com até 30 min de preparo:
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+      data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        {{#if receitasAte30.length}}
+        <ul>
+          {{#each receitasAte30}}
+          <li><a href="/receita/consulta/{{this.id}}">{{this.titulo}}</a></li>
+          {{/each}}
+        </ul>
+        {{else}}
+        <p>Não há receitas com até 30 minutos.</p>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+        aria-expanded="false" aria-controls="collapseTwo">
+        Receitas com tempo de preparo entre 31 e 60 min:
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+      data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        {{#if receitas31a60.length}}
+        <ul>
+          {{#each receitas31a60}}
+          <li><a href="/receita/consulta{{this.id}}">{{this.titulo}}</a></li>
+          {{/each}}
+        </ul>
+        {{else}}
+        <p>Não há receitas entre 31 e 60 minutos.</p>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
+        aria-expanded="false" aria-controls="collapseThree">
+        Receitas com tempo de preparo acima de 60 min:
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+      data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        {{#if receitasMais60.length}}
+        <ul>
+          {{#each receitasMais60}}
+          <li><a href="/receita/consulta/{{this.id}}">{{this.titulo}}</a></li>
+          {{/each}}
+        </ul>
+        {{else}}
+        <p>Não há receitas com mais de 60 minutos.</p>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<a class="btn btn-secondary" href="/"> <i class="bi bi-arrow-return-left"></i> Voltar</a>
+
+
+
+
+
+{{!-- <h2>Receitas com até 30 min de preparo:</h2>
+{{#if receitasAte30.length}}
+<ul>
+  {{#each receitasAte30}}
+  <li><a href="/receita/consulta/{{this.id}}">{{this.titulo}}</a></li>
+  {{/each}}
+</ul>
+{{else}}
+<p>Não há receitas com até 30 minutos.</p>
+{{/if}}
+
+<h2>Receitas com tempo de preparo entre 31 e 60 min:</h2>
+
+{{#if receitas31a60.length}}
+<ul>
+  {{#each receitas31a60}}
+  <li><a href="/receita/consulta{{this.id}}">{{this.titulo}}</a></li>
+  {{/each}}
+</ul>
+{{else}}
+<p>Não há receitas entre 31 e 60 minutos.</p>
+{{/if}}
+
+<h2>Receitas com tempo de preparo acima de 60 min:</h2>
+{{#if receitasMais60.length}}
+<ul>
+  {{#each receitasMais60}}
+  <li><a href="/receita/consulta/{{this.id}}">{{this.titulo}}</a></li>
+  {{/each}}
+</ul>
+{{else}}
+<p>Não há receitas com mais de 60 minutos.</p>
+{{/if}} --}}

@@ -1,0 +1,50 @@
+<h1>Alteração de receita</h1>
+<ul class="nav nav-pills nav-fill mt-3 mb-2">
+    <li class="nav-item">
+        <a class="nav-link" href="/"><i class="bi bi-journal-bookmark"></i> Sistema de Receitas</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/sobre"> <i class="bi bi-info-circle"></i> Sobre</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/receita/cria"> <i class="bi bi-file-earmark-plus"></i> Nova Receita</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/tempo"><i class="bi bi-alarm"></i> Receitas por Tempo de Preparo</a>
+    </li>
+</ul>
+
+<form method="POST" action="/receita/altera/{{receita.id}}">
+    <div class="form-group">
+        <p><label for="id" class="form-label">Identificação da Receita</label></p>
+        <p><input type="number" class="form-control" name='id' id="id" value="{{receita.id}}" size="30" readonly></p>
+    </div>
+
+    <div class="form-group">
+        <p><label for="titulo" class="form-label">Título da Receita</label></p>
+        <p><input type="text" required class="form-control" name='titulo' id="titulo" size="60"
+                value="{{receita.titulo}} "></p>
+    </div>
+
+    <div class="form-group">
+        <p><label for="ingredientes" class="form-label">Ingredientes</label></p>
+        <p><textarea rows="5" required class="form-control" required cols="57" name='ingredientes'
+                id="ingredientes">{{receita.ingredientes}}</textarea></p>
+        <p>Digite cada ingrediente em uma nova linha</p>
+    </div>
+
+    <div class="form-group">
+        <p><label for="modo" class="form-label">Modo de Preparo</label></p>
+        <p><textarea rows="5" required class="form-control" required cols="57" name='modo'
+                id="modo">{{receita.modo}}</textarea></p>
+        <p>Descreva passo a passo o modo de preparo</p>
+    </div>
+
+    <div class="form-group">
+        <p><label for="tempo">Tempo de Preparo (minutos)</label></p>
+        <p><input type='number' class="form-control" required name='tempo' value="{{receita.tempo}}" size="30" min="1"/></p>
+    </div>  
+
+        <button type="submit" class="btn btn-primary"> <i class="bi bi-check-circle"></i> Alterar Receita</button>
+        <a class="btn btn-secondary" href="/"> <i class="bi bi-arrow-return-left"></i> Voltar</a>
+</form>
