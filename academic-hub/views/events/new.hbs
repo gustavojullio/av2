@@ -1,0 +1,26 @@
+<h1>Criar Novo Evento</h1>
+<div class="card shadow-sm">
+    <div class="card-body">
+        <form action="/events" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="title" class="form-label">Título do Evento</label>
+                <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Descrição</label>
+                <textarea class="form-control" id="description" name="description" rows="5" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="eventDate" class="form-label">Data do Evento</label>
+                <input type="date" class="form-control" id="eventDate" name="eventDate" required>
+            </div>
+            <div class="mb-3">
+                <label for="eventImage" class="form-label">Imagem do Evento (Opcional)</label>
+                <input class="form-control" type="file" id="eventImage" name="eventImage">
+                <div class="form-text">Envie uma imagem para seu evento (jpeg, png, gif).</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Criar Evento</button>
+            <a href="/events" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>

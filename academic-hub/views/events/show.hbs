@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <img src="{{event.image}}" class="card-img-top" alt="{{event.title}}" style="max-height: 400px; object-fit: cover;">
+            <div class="card-body">
+                <h1 class="card-title">{{event.title}}</h1>
+                <p class="card-text text-muted">
+                    <i class="fas fa-calendar-alt"></i> {{formatDate event.eventDate 'DD/MM/YYYY'}} | 
+                    <i class="fas fa-user-tie"></i> Organizado por: <strong>{{event.organizer.displayName}}</strong>
+                </p>
+                <hr>
+                <p>{{event.description}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">Ações do Evento</h5>
+                <hr>
+                <div class="d-grid gap-2">
+                    {{#if isSubscribed}}
+                        <p class="text-success"><i class="fas fa-check-circle"></i> Você está inscrito!</p>
+                        <a href="/events/{{event._id}}/certificate" class="btn btn-info">
+                            <i class="fas fa-award"></i> Baixar Certificado
+                        </a>
+                    {{else}}
+                        <form action="/events/{{event._id}}/subscribe" method="POST">
+                            <button type="submit" class="btn btn-success btn-lg">Inscrever-se Agora</button>
+                        </form>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+        <div class="card mt-3">
+            <div class="card-body">
+                <h6><i class="fas fa-users"></i> {{event.subscribers.length}} Inscritos:</h6>
+                <ul class="list-group list-group-flush">
+                    {{#each event.subscribers}}
+                        <li class="list-group-item d-flex align-items-center">
+                            <img src="{{this.image}}" alt="user" class="rounded-circle me-2" width="30">
+                            {{this.displayName}}
+                        </li>
+                    {{else}}
+                        <li class="list-group-item">Seja o primeiro a se inscrever!</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
