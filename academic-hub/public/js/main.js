@@ -1,19 +1,18 @@
-// academic-hub/public/js/main.js
-// eslint-disable-next-line no-undef
-const socket = io();
+// Em public/js/main.js
 
+const socket = io(); // 1. Inicia a conexão com o servidor Socket.IO
+
+// 2. Fica "ouvindo" por qualquer mensagem que chegue com o nome 'newEvent'
 socket.on('newEvent', (data) => {
-  // Cria o elemento Toast do Bootstrap dinamicamente
+
+  // 3. Quando a mensagem chega, pegamos o container de notificações no HTML
   const toastContainer = document.getElementById('toast-container');
-  const toastId = 'toast-' + Date.now();
   
+  // 4. Criamos dinamicamente o HTML da notificação (um "Toast" do Bootstrap)
+  //    usando os dados que recebemos do servidor (data.title, data.organizer, etc.)
   const toastHTML = `
-    <div id="${toastId}" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header">
-        <strong class="me-auto text-primary"><i class="fas fa-bell"></i> Novo Evento!</strong>
-        <small>agora</small>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
+    <div class="toast" ...>
+      <div class="toast-header"> ... </div>
       <div class="toast-body">
         O evento "<strong>${data.title}</strong>" foi criado por <strong>${data.organizer}</strong>.
         <div class="mt-2 pt-2 border-top">
@@ -23,9 +22,8 @@ socket.on('newEvent', (data) => {
     </div>
   `;
   
+  // 5. Adicionamos a notificação na página e mandamos ela aparecer
   toastContainer.innerHTML += toastHTML;
-
-  // eslint-disable-next-line no-undef
   const toastElement = new bootstrap.Toast(document.getElementById(toastId));
   toastElement.show();
 });

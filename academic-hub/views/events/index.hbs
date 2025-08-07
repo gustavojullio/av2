@@ -12,8 +12,7 @@
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title">{{this.title}}</h5>
                     <p class="card-text text-muted">
-                        <i class="fas fa-calendar-alt"></i> {{formatDate this.eventDate}} <br>
-                        <i class="fas fa-user-tie"></i> Organizado por: {{this.organizer.displayName}}
+                        <i class="fas fa-calendar-alt"></i> {{formatDate this.eventDate 'DD/MM/YYYY'}} <br> <i class="fas fa-user-tie"></i> Organizado por: {{this.organizer.displayName}}
                     </p>
                     <a href="/events/{{this._id}}" class="btn btn-dark mt-auto">Ver Detalhes</a>
                 </div>
